@@ -1,0 +1,24 @@
+{
+  "name": "cc-node-gae",
+  "version": "1.0.0",
+  "description": "Codecomp3 Node Player",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SKAUL05/cc-node-gae.git"
+  },
+  "author": "Sarath Kaul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SKAUL05/cc-node-gae/issues"
+  },
+  "homepage": "https://github.com/SKAUL05/cc-node-gae#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1"
+  }
+}
