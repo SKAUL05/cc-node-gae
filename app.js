@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.status(200).send('Welcome to Codecomp3 Node Player').end();
+  res.status(200).send('Welcome to CodeComp3 Node Player').end();
 });
 
 // Start the server
