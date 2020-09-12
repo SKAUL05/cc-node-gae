@@ -38,4 +38,4 @@
 
 
 #### Now you are good to go, whenever you push anything to your repo's master branch it will get deployed to Google App Engine of your GCP Project.
-#### App Engine URL : https://<PROJECT_ID>.uc.r.appspot.com/
+#### App Engine URL : https://<GCP_PROJECT_ID>.uc.r.appspot.com/
