@@ -1,37 +1,41 @@
-## Welcome to GitHub Pages
+# Codecomp Node Player
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/y/SKAUL05/cc-node-gae?logo=github)](https://github.com/SKAUL05/cc-node-gae/commits/master) [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SKAUL05/cc-node-gae.svg?logo=github&style=social)](https://github.com/SKAUL05/) [![GitHub last commit](https://img.shields.io/github/last-commit/SKAUL05/cc-node-gae.svg?style=social&logo=git)](https://github.com/SKAUL05/)
+![Deploy to GAE](https://github.com/SKAUL05/cc-node-gae/workflows/Deploy%20to%20GAE/badge.svg)
 
-You can use the [editor on GitHub](https://github.com/SKAUL05/cc-node-gae/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Guide to deploy to Google App Engine using Github Actions
 
-### Markdown
+1. Setting up Google Cloud Project (skip if you already have a GCP Project)
+-  Go to [Google Cloud](https://cloud.google.com/) and click on **Get Started for FREE**.
+-  Login using your gmail account, choose your country, accept terms and conditions and click **Continue**.
+-  In the next step, fill your details, like account type, Name, Address, credit card details, tax information, etc. If you have old Gmail account and all the information is already there it would take it and you might not have to fill all the details.
+-  After filling all the details click on **Start my free trial**.
+-  Google will setup your cloud account and in few seconds your Google Cloud Platform account will be ready to start deploying applications on it. It will look like below:
+![Project Setup](https://github.com/SKAUL05/cc-node-gae/blob/master/assets/gcp-project-setup-modified.jpg)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+2. Creating Service Account and store credentials in Github
 
-```markdown
-Syntax highlighted code block
+- Creating Service Account and provide owner access
+  - Go to **Navigation Menu(Top left Corner) > IAM & Admin > Service Accounts**
+  - Click on **Create Service Account**
+  - Under **Service Account Details** provide service account **name** and **description** of your choice and click on **Create**
+  ![Service Account Details](https://github.com/SKAUL05/cc-node-gae/blob/master/assets/service-account-details-modified.jpg)
+  - Under **Service Account Permissions** select **Project > Owner** Role and click on **Continue**
+  ![Service Account Permissions](https://github.com/SKAUL05/cc-node-gae/blob/master/assets/service-account-permissions-modified.jpg)
+  - Keep **User Access Section** unchanged and click on **Done**
+  - On Service Account Page click on Actions hamburger menu of Service Account you just created and Click on Create Key
+  ![Service Account Create Key](https://github.com/SKAUL05/cc-node-gae/blob/master/assets/service-account-create-key-modified.jpg)
+  - Select **JSON** option and Click on **Create**. A JSON file will get downloaded on your local system, save it we will need it later*
+  ![Service Account JSON](https://github.com/SKAUL05/cc-node-gae/blob/master/assets/service-account-json-modified.jpg)
 
-# Header 1
-## Header 2
-### Header 3
+- Add Github Secrets
+  - Go to repo that you forked from https://github.com/SKAUL05/cc-node-gae
+  - Go to **Settings > Secrets**
+  - Click on **New Secret** and add Name as **PROJECT_ID** and value as Project ID of your GCP Project and click on Add Secret
+  ![New Secret](https://github.com/SKAUL05/cc-node-gae/blob/master/assets/secret-project.JPG)
 
-- Bulleted
-- List
+  - Again click on New Secret and add Name as **ACCOUNT_KEY** and value as *contents of json file that you downloaded and click on Add Secret
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SKAUL05/cc-node-gae/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+#### Now you are good to go, whenever you push anything to your repo's master branch it will get deployed to Google App Engine of your GCP Project.
+#### App Engine URL : https://<PROJECT_ID>.uc.r.appspot.com/
