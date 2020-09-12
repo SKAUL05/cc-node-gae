@@ -11,7 +11,7 @@
 -  In the next step, fill your details, like account type, Name, Address, credit card details, tax information, etc. If you have old Gmail account and all the information is already there it would take it and you might not have to fill all the details.
 -  After filling all the details click on **Start my free trial**.
 -  Google will setup your cloud account and in few seconds your Google Cloud Platform account will be ready to start deploying applications on it. It will look like below:
-![Project Setup](https://github.com/SKAUL05/cc-node-gae/blob/master/assets/gcp-project-setup-modified.jpg)
+![Project Setup](https://raw.githubusercontent.com/SKAUL05/cc-node-gae/master/assets/gcp-project-setup-modified.jpg)
 
 2. Creating Service Account and store credentials in Github
 
@@ -19,20 +19,20 @@
   - Go to **Navigation Menu(Top left Corner) > IAM & Admin > Service Accounts**
   - Click on **Create Service Account**
   - Under **Service Account Details** provide service account **name** and **description** of your choice and click on **Create**
-  ![Service Account Details](https://github.com/SKAUL05/cc-node-gae/blob/master/assets/service-account-details-modified.jpg)
+  ![Service Account Details](https://raw.githubusercontent.com/SKAUL05/cc-node-gae/master/assets/service-account-details-modified.jpg)
   - Under **Service Account Permissions** select **Project > Owner** Role and click on **Continue**
-  ![Service Account Permissions](https://github.com/SKAUL05/cc-node-gae/blob/master/assets/service-account-permissions-modified.jpg)
+  ![Service Account Permissions](https://raw.githubusercontent.com/SKAUL05/cc-node-gae/master/assets/service-account-permissions-modified.jpg)
   - Keep **User Access Section** unchanged and click on **Done**
   - On Service Account Page click on Actions hamburger menu of Service Account you just created and Click on Create Key
-  ![Service Account Create Key](https://github.com/SKAUL05/cc-node-gae/blob/master/assets/service-account-create-key-modified.jpg)
+  ![Service Account Create Key](https://raw.githubusercontent.com/SKAUL05/cc-node-gae/master/assets/service-account-create-key-modified.jpg)
   - Select **JSON** option and Click on **Create**. A JSON file will get downloaded on your local system, save it we will need it later*
-  ![Service Account JSON](https://github.com/SKAUL05/cc-node-gae/blob/master/assets/service-account-json-modified.jpg)
+  ![Service Account JSON](https://raw.githubusercontent.com/SKAUL05/cc-node-gae/master/assets/service-account-json-modified.jpg)
 
 - Add Github Secrets
   - Go to repo that you forked from https://github.com/SKAUL05/cc-node-gae
   - Go to **Settings > Secrets**
   - Click on **New Secret** and add Name as **PROJECT_ID** and value as Project ID of your GCP Project and click on Add Secret
-  ![New Secret](https://github.com/SKAUL05/cc-node-gae/blob/master/assets/secret-project.JPG)
+  ![New Secret](https://raw.githubusercontent.com/SKAUL05/cc-node-gae/master/assets/secret-project.JPG)
 
   - Again click on New Secret and add Name as **ACCOUNT_KEY** and value as *contents of json file that you downloaded and click on Add Secret
 
