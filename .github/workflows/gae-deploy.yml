@@ -23,4 +23,4 @@ jobs:
         run: |-
           gcloud services enable appengine.googleapis.com
           gcloud app create --region="us-central" || echo "App Already Present"
-          gcloud app deploy --quiet --project=${{ secrets.PROJECT_ID }}
+          gcloud app deploy --quiet --project=${{ secrets.PROJECT_ID }} -v node
