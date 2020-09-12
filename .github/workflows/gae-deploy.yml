@@ -1,0 +1,26 @@
+name: Deploy to GAE
+
+on:
+  push:
+    branches: [ master ]
+  
+jobs:
+  setup:
+    name: Setup and Deploy
+    runs-on: ubuntu-latest
+    steps:      
+      - uses: actions/checkout@v2
+      # Setup gcloud CLI
+      - name: Setup gcloud CLI
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          service_account_key: ${{ secrets.ACCOUNT_KEY}}
+          project_id: ${{ secrets.PROJECT_ID }}
+          export_default_credentials: true 
+      - id: 'deploy' 
+        name: Deploy to GAE
+        run: |-
+          gcloud services enable appengine.googleapis.com
+          gcloud app create --region="us-central" || echo "App Already Present"
+          gcloud app deploy --quiet --project=${{ secrets.PROJECT_ID }}
