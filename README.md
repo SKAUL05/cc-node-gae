@@ -1,1 +1,1 @@
-# cc-node-gae
+# Codecomp Node Player
