@@ -30,6 +30,8 @@
 
 - Add Github Secrets
   - Go to repo that you forked from https://github.com/SKAUL05/cc-node-gae
+  - Go to Actions & Click **I understand my workflows, go ahead & enable them**
+  ![Update Workflow](https://raw.githubusercontent.com/SKAUL05/cc-node-gae/master/assets/understand-workflows.JPG)
   - Go to **Settings > Secrets**
   - Click on **New Secret** and add Name as **PROJECT_ID** and value as Project ID of your GCP Project and click on Add Secret
   ![New Secret](https://raw.githubusercontent.com/SKAUL05/cc-node-gae/master/assets/secret-project.JPG)
