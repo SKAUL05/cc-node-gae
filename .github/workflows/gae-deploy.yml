@@ -29,18 +29,17 @@ jobs:
       # Build the Docker image
       - name: Build Docker
         run: |-
-          docker build \
-          -t "gcr.io/$PROJECT_ID/gcp-appengine" \
-          .
-    # Push the Docker image to Google Container Registry
+          docker build -t "gcr.io/$PROJECT_ID/gcp-appengine" .
+          
+     # Push the Docker image to Google Container Registry
       - name: Publish Docker Image
         run: |-
-          docker push "gcr.io/PROJECT_ID/gcp-appengine"
+          docker push "gcr.io/$PROJECT_ID/gcp-appengine"
     
-    # Deploy the Docker image to the GKE cluster
+     # Deploy the Docker image to the GKE cluster
       - name: Deploy Docker Image
         run: |-
-          gcloud app deploy --quiet --version=node --project=${{ secrets.PROJECT_ID }} --image-url=gcr.io/$.PROJECT_ID/gcp-appengine
+          gcloud app deploy --quiet --version=node --project=$PROJECT_ID --image-url=gcr.io/$.PROJECT_ID/gcp-appengine
 #           gcloud services enable appengine.googleapis.com
 #           gcloud app create --region="us-central" || echo "App Already Present"
 #           gcloud app deploy  --quiet --version=node --project=${{ secrets.PROJECT_ID }}
