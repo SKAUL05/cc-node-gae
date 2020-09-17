@@ -18,17 +18,27 @@ jobs:
           service_account_key: ${{ secrets.ACCOUNT_KEY}}
           project_id: ${{ secrets.PROJECT_ID }}
           export_default_credentials: true 
-      - id: 'deploy' 
+      - id: 'configure' 
         name: Deploy to GAE
         run: |-
           gcloud services enable appengine.googleapis.com
           gcloud --quiet auth configure-docker
+      
+      # Build the Docker image
+      - name: Build
+        run: |-
           docker build \
-          -t "gcr.io/${{ secrets.PROJECT_ID }}/gcp-appengine" \
+          -t "gcr.io/${{secrets.PROJECT_ID}}/gcp-appengine" \
           .
-          docker push "gcr.io/${{ secrets.PROJECT_ID }}/gcp-appengine"
-          gcloud app deploy --quiet --version=node --project=${{ secrets.PROJECT_ID }} --image-url=gcr.io/${{ secrets.PROJECT_ID }}/gcp-appengine
-
+    # Push the Docker image to Google Container Registry
+      - name: Publish
+        run: |-
+          docker push "gcr.io/${{secrets.PROJECT_ID}}/gcp-appengine"
+    
+    # Deploy the Docker image to the GKE cluster
+      - name: Deploy
+        run: |-
+          gcloud app deploy --quiet --version=node --project=${{ secrets.PROJECT_ID }} --image-url=gcr.io/${{secrets.PROJECT_ID}}/gcp-appengine
 #           gcloud services enable appengine.googleapis.com
 #           gcloud app create --region="us-central" || echo "App Already Present"
 #           gcloud app deploy  --quiet --version=node --project=${{ secrets.PROJECT_ID }}
