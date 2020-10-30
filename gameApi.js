@@ -21,7 +21,6 @@ function joinGame(callback) {
         headers: apiHeaders
     }, function(error, response, body) {
 
-
         if (response && response.statusCode >= 200 && response.statusCode < 300) {
 
             callback(null, body);

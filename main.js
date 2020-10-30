@@ -4,7 +4,7 @@ var _ = require("lodash");
 var gameApi = require('./gameApi.js');
 var colors = require('colors');
 colors.setTheme({
-    info: 'grey',
+    info: 'blue',
     warn: 'yellow',
     error: 'red',
     success: 'green'
@@ -22,7 +22,7 @@ console.log(`I am playing as "${config.team}"`.success);
 console.log("");
 
 function gameStatusReceived(err, data) {
-    if (err) {
+    if((err) || (!data)){
         console.log('Get game status failed'.error);
         console.log(err);
         fetchGameStatus();
